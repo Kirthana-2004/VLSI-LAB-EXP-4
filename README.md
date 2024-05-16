@@ -51,7 +51,7 @@ Run Simulation: Start the simulation by clicking on the "Run" button in the simu
 
 View Results: After the simulation completes, you can view waveforms, debug signals, and analyze the behavior of your design. VERILOG CODE Dflipflop
 
-SR flipflop:
+D flipflop:
 ~~~
 module dff(d,clk,rst,q);
 input d,clk,rst;

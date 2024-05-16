@@ -1,6 +1,6 @@
 SIMULATION AND IMPLEMENTATION OF SEQUENTIAL LOGIC CIRCUITS
 
-AIM: To simulate and synthesis SR, JK, T, D - FLIPFLOP, COUNTER DESIGN using vivado 2023.1.
+AIM:To simulate and synthesis SR, JK, T, D - FLIPFLOP, COUNTER DESIGN using vivado 2023.1.
 
 APPARATUS REQUIRED: vivado 2023.1.
 
@@ -8,23 +8,28 @@ LOGIC DIAGRAM
 
 SR FLIPFLOP
 
-image
+![image](https://github.com/Kirthana-2004/VLSI-LAB-EXP-4/assets/144320880/8313b3c0-515c-4d92-9ddd-4c4feb16ffcb)
+
 
 JK FLIPFLOP
 
-image
+![image](https://github.com/Kirthana-2004/VLSI-LAB-EXP-4/assets/144320880/56cefab3-d050-4faf-beec-b47353494101)
+
 
 T FLIPFLOP
 
-image
+![image](https://github.com/Kirthana-2004/VLSI-LAB-EXP-4/assets/144320880/72209d54-2e97-448e-8724-06f470a79575)
+
 
 D FLIPFLOP
 
-image
+![image](https://github.com/Kirthana-2004/VLSI-LAB-EXP-4/assets/144320880/58ab92f2-14e3-458b-a5b5-6aaf8ef3e518)
+
 
 COUNTER
 
-image
+![image](https://github.com/Kirthana-2004/VLSI-LAB-EXP-4/assets/144320880/e129ad25-fc8a-4579-9125-9a09a0182be9)
+
 
 PROCEDURE:
 
@@ -46,6 +51,8 @@ Run Simulation: Start the simulation by clicking on the "Run" button in the simu
 
 View Results: After the simulation completes, you can view waveforms, debug signals, and analyze the behavior of your design. VERILOG CODE Dflipflop
 
+SR flipflop:
+~~~
 module dff(d,clk,rst,q);
 input d,clk,rst;
 output reg q;
@@ -57,11 +64,14 @@ else
 q=d;
 end
 endmodule
+~~~
 OUTPUT
+![image](https://github.com/Kirthana-2004/VLSI-LAB-EXP-4/assets/144320880/afdd366b-6465-466b-b734-aed1ec8fcd26)
+![image](https://github.com/Kirthana-2004/VLSI-LAB-EXP-4/assets/144320880/1e936d2c-ffd2-4b9f-bedb-0f81e192f3f6)
 
-image
 
-image JKflipflop
+JKflipflop:
+~~~
 
 module JK_flipflop (q, q_bar, j,k, clk, reset);  
   input j,k,clk, reset;
@@ -83,12 +93,14 @@ module JK_flipflop (q, q_bar, j,k, clk, reset);
   end
   assign q_bar = ~q;
 endmodule
+~~~
 OUTPUT
+![image](https://github.com/Kirthana-2004/VLSI-LAB-EXP-4/assets/144320880/53793b33-076a-479e-b0a6-28110793a4bd)
+![image](https://github.com/Kirthana-2004/VLSI-LAB-EXP-4/assets/144320880/33ccaf55-0c36-4c2b-a24c-9e4d4b9fe7f9)
 
-image
 
-image Mod10Counter
-
+Mod10Counter:
+~~~
 module counter(
 input clk,rst,enable,
 output reg [3:0]counter_output
@@ -103,12 +115,14 @@ else
 counter_output <= 0;
 end
 endmodule
+~~~
 OUTPUT
+![image](https://github.com/Kirthana-2004/VLSI-LAB-EXP-4/assets/144320880/54ff23ad-7310-47ca-a2b0-258bfc4aa45e)
+![image](https://github.com/Kirthana-2004/VLSI-LAB-EXP-4/assets/144320880/da9c3f95-c6d1-42db-8c16-97dc90afd84e)
 
-image
 
-image Ripplecarrycounter
-
+Ripplecarrycounter:
+~~~
 module D_FF(q, d, clk, reset);
 output q;
 input d, clk, reset;
@@ -134,12 +148,13 @@ T_FF tff1(q[1], q[0], reset);
 T_FF tff2(q[2], q[1], reset);
 T_FF tff3(q[3], q[2], reset);
 endmodule
+~~~
 OUTPUT
+![image](https://github.com/Kirthana-2004/VLSI-LAB-EXP-4/assets/144320880/9cac6e0c-7cc8-43c2-ad69-4f9110b4f00e)
+![image](https://github.com/Kirthana-2004/VLSI-LAB-EXP-4/assets/144320880/eab3b897-fd33-4f88-8c12-143c94675bec)
 
-image
-
-image SRflipflop
-
+SRflipflop:
+~~~
 module SR_flipflop (q, q_bar, s,r, clk, reset);
   input s,r,clk, reset;
   output reg q;
@@ -158,11 +173,13 @@ module SR_flipflop (q, q_bar, s,r, clk, reset);
   end
   assign q_bar = ~q;
 endmodule
+~~~
 output
+![image](https://github.com/Kirthana-2004/VLSI-LAB-EXP-4/assets/144320880/0a4aca74-8976-4e5f-9221-f39184f9fb7c)
+![image](https://github.com/Kirthana-2004/VLSI-LAB-EXP-4/assets/144320880/dd6d1d1f-1a2f-4d5b-8007-5b6dd4aee7ff)
 
-image
-
-image T flipflop
+T flipflop:
+~~~
 
 module tff (t,clk, rstn,q);  
  input t,clk, rstn;
@@ -177,11 +194,14 @@ module tff (t,clk, rstn,q);
             q <= q;  
   end  
 endmodule
+~~~
 OUTPUT
+![image](https://github.com/Kirthana-2004/VLSI-LAB-EXP-4/assets/144320880/aed2b151-705f-4313-ab91-b0923e2f28c6)
+![image](https://github.com/Kirthana-2004/VLSI-LAB-EXP-4/assets/144320880/ade547d6-a352-4788-a4cb-6bb3a58ecaa4)
 
-image
 
-image Updowncounter
+Updowncounter:
+~~~
 
 module updown_counter(clk,rst,updown,out);
 input clk,rst,updown;
@@ -196,10 +216,10 @@ else
 out=out-1;
 end
 endmodule
-output
+~~~
+OUTPUT
+![image](https://github.com/Kirthana-2004/VLSI-LAB-EXP-4/assets/144320880/315965dd-a365-4b1f-8813-b4a2931dd297)
+![image](https://github.com/Kirthana-2004/VLSI-LAB-EXP-4/assets/144320880/60ecb26a-ae20-40b5-a0e2-9aa96b7c4b5a)
 
-image
-
-image
 
 RESULT Simulate And Synthesis SR, JK, T, D - FLIPFLOP, COUNTER DESIGN is Successfully Verified using Vivado Software.

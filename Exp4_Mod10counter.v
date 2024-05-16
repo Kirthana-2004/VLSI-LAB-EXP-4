@@ -1,12 +1,14 @@
-//MOD -10 COUNTER 
-module mod10(rst,clk,out); 
-input rst,clk; 
-output reg[3:0]out=4'b0000;
- always@ (posedge clk) 
+module counter(
+input clk,rst,enable,
+output reg [3:0]counter_output
+);
+always@ (posedge clk)
 begin 
-if(rst==1 | out==4'b1001) 
-out=4'b0000; 
-else 
-out=out+4'b0001;
- end 
+if( rst | counter_output==4'b1001)
+counter_output <= 4'b0000;
+else if(enable)
+counter_output <= counter_output + 1;
+else
+counter_output <= 0;
+end
 endmodule
